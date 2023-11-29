@@ -1,0 +1,33 @@
+<div
+  class="alert alert-warning text-center"
+  *ngIf="countries.length === 0; else table"
+>
+  No hay resultados
+</div>
+
+<ng-template #table>
+  <table class="table table-hover " *ngIf="countries.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Bandera</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Población</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ country.flag }}</td>
+        <td> <img [src]="country.flags.svg" [alt]="country.name.common"/> {{  country.name.common }}</td>
+        <td>{{ country.capital }}</td>
+        <td>{{ country.population | number }}</td>
+        <td>
+            <a [href]="['countries/country/',country.cioc]">Ver mas</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

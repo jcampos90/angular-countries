@@ -1,0 +1,14 @@
+<h2>Por Región</h2>
+<hr>
+
+<div class="row">
+    <div class="col-12 mb-2 ">
+        <countries-region-picker (onRegionSelected)="search($event)"></countries-region-picker>
+    </div>
+    <div class="col-12">
+
+      <countries-country-table
+        [countries]="countries"></countries-country-table>
+
+    </div>
+</div>
